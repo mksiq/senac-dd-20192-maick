@@ -2,6 +2,8 @@ package model.dao;
 
 import java.util.ArrayList;
 
+import model.vo.Cliente;
+
 /**
  * Interface que contém os métodos que todos os DAOs devem implementar. T é o
  * tipo da classe que implementará o DAO. Ex.: para a entidade Pessoa, deve ser
@@ -53,4 +55,5 @@ public interface BaseDAO<T> {
 	 * @return uma lista de objetos do tipo T.
 	 */
 	public ArrayList<T> consultarTodos();
+
 }

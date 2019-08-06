@@ -2,7 +2,7 @@ package model.dao;
 
 import java.util.ArrayList;
 
-import model.vo.Cliente;
+import model.entity.Cliente;
 
 /**
  * Interface que contém os métodos que todos os DAOs devem implementar. T é o

@@ -2,9 +2,9 @@ package view;
 
 import java.util.ArrayList;
 
-import model.vo.Cliente;
-import model.vo.Endereco;
-import model.vo.Telefone;
+import model.entity.Cliente;
+import model.entity.Endereco;
+import model.entity.Telefone;
 
 public class executavel {
 	public static void main(String args[]) {

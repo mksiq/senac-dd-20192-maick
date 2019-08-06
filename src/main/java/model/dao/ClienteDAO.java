@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import model.vo.Cliente;
+import model.entity.Cliente;
 
 public class ClienteDAO implements BaseDAO<Cliente>{
 

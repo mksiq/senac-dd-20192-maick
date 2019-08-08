@@ -2,8 +2,6 @@ package model.dao;
 
 import java.util.ArrayList;
 
-import model.entity.Cliente;
-
 /**
  * Interface que contém os métodos que todos os DAOs devem implementar. T é o
  * tipo da classe que implementará o DAO. Ex.: para a entidade Pessoa, deve ser
@@ -15,7 +13,7 @@ import model.entity.Cliente;
 public interface BaseDAO<T> {
 
 	/**
-	 * Insere um novo registro tabela de entidade T
+	 * Insere um novo registro na tabela de entidade T
 	 * 
 	 * @param novaEntidade o objeto que contém o novo registro que será inserido na
 	 *                     tabela.
@@ -45,7 +43,7 @@ public interface BaseDAO<T> {
 	 * Retorna um objeto do tipo T, dado a sua chave primária.
 	 * 
 	 * @param id a chave primária do objeto/registro buscado
-	 * @return o objeto retornado pela consulta.
+	 * @return o objeto retornado pela consulta, ou null caso não exista registro com o id informado.
 	 */
 	public T consultarPorId(int id);
 
@@ -55,5 +53,4 @@ public interface BaseDAO<T> {
 	 * @return uma lista de objetos do tipo T.
 	 */
 	public ArrayList<T> consultarTodos();
-
 }

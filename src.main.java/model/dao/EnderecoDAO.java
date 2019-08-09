@@ -141,7 +141,6 @@ public class EnderecoDAO implements BaseDAO<Endereco> {
 		Endereco endereco;
 		endereco = new Endereco();
 		try {
-			//RUA, CEP, ESTADO, CIDADE, BAIRRO, NUMERO
 			endereco.setId(resultadoDaConsulta.getInt("id"));
 			endereco.setRua(resultadoDaConsulta.getString("rua"));
 			endereco.setCep(resultadoDaConsulta.getString("cep"));

@@ -22,6 +22,19 @@ public class Endereco {
 	
 	
 
+	public Endereco(int id, String rua, String cep, String estado, String cidade, String bairro, String numero) {
+		super();
+		this.id = id;
+		this.rua = rua;
+		this.cep = cep;
+		this.estado = estado;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.numero = numero;
+	}
+
+
+
 	public Endereco() {
 		super();
 		// TODO Auto-generated constructor stub

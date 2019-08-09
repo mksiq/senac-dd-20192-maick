@@ -11,17 +11,17 @@ import java.util.ArrayList;
 /**
  * Classe criada na disciplina de POO (2019/1).
  * 
- * Representa um banco de dados que se conecta à aplicação
+ * Representa um banco de dados que se conecta a� aplica�ao
  * 
- * Encapsula métodos da API JDBC, com a definição, criação e fechamento de
- * conexões à bancos de dados relacionais
+ * Encapsula metodos da API JDBC, com a defini�ao, cria�ao e fechamento de
+ * conex�es a� bancos de dados relacionais
  * 
  * @author Adriano de Melo
  * 
- *         Vilmar César Pereira Júnior (continuação em Desenvolvimento Desktop
+ *         Vilmar Cesar Pereira J�nior (continua�ao em Desenvolvimento Desktop
  *         2018/2) -- ALTERADO remotamente (no github)
  * 
- *         Diferenças entre Statement e PreparedStatement:
+ *         Diferen�as entre Statement e PreparedStatement:
  * 
  *         A maioria dos bancos de dados relacionais lida com uma consulta
  *         (query) JDBC / SQL em quatro passos:
@@ -34,30 +34,30 @@ import java.util.ArrayList;
  * 
  *         4- Executar a consulta otimizada, buscando e retornando os dados.
  * 
- *         Um Statement irá sempre passar pelos quatro passos acima para cada
- *         consulta SQL enviada para o banco. Já um Prepared Statement
- *         pré-executa os passos (1) a (3).
+ *         Um Statement ira sempre passar pelos quatro passos acima para cada
+ *         consulta SQL enviada para o banco. Ja um Prepared Statement
+ *         pre-executa os passos (1) a (3).
  * 
- *         Então, ao criar um Prepared Statement alguma pré-otimização é feita
- *         de imediato. O efeito disso é que, se você pretende executar a mesma
- *         consulta repetidas vezes mudando apenas os parâmetros de cada uma, a
- *         execução usando Prepared Statements será mais rápida e com menos
+ *         Entao, ao criar um Prepared Statement alguma pre-otimiza�ao e feita
+ *         de imediato. O efeito disso e que, se voce pretende executar a mesma
+ *         consulta repetidas vezes mudando apenas os parametros de cada uma, a
+ *         execu�ao usando Prepared Statements sera mais rapida e com menos
  *         carga sobre o banco.
  * 
- *         Outra vantagem dos Prepared Statements é que, se utilizados
- *         corretamente, ajudam a evitar <b>ataques de Injeção de SQL</b>.
+ *         Outra vantagem dos Prepared Statements e que, se utilizados
+ *         corretamente, ajudam a evitar <b>ataques de Inje�ao de SQL</b>.
  * 
- *         Note que para isso é preciso que os parâmetros da consulta sejam
- *         atribuídos através dos métodos setInt(), setString(), etc. presentes
- *         na interface PreparedStatement e não por concatenação de strings.
+ *         Note que para isso e preciso que os parametros da consulta sejam
+ *         atribuidos atraves dos metodos setInt(), setString(), etc. presentes
+ *         na interface PreparedStatement e nao por concatena�ao de strings.
  * 
- *         Para uma consulta que vai ser executada poucas vezes e não requer
- *         nenhum parâmetro, Statement basta. Para os demais casos, prefira
+ *         Para uma consulta que vai ser executada poucas vezes e nao requer
+ *         nenhum parametro, Statement basta. Para os demais casos, prefira
  *         PreparedStatement.
  * 
  *         FONTE:
  *         {@link https://pt.stackoverflow.com/questions/99620/qual-a-diferen%C3%A7a-entre-o-statement-e-o-preparedstatement}
- *         ======= Classe responsável pela conexão JDBC com o banco de dados
+ *         ======= Classe responsavel pela conexao JDBC com o banco de dados
  *         escolhido.
  * 
  * @author Adriano de Melo
@@ -76,14 +76,14 @@ public class Banco {
 	public static final int CODIGO_RETORNO_SUCESSO_EXCLUSAO = 1;
 
 	/**
-	 * Estabelece a conexão JBDC considerando as configurações da classe Banco.
+	 * Estabelece a conexao JBDC considerando as configura��es da classe Banco.
 	 * 
-	 * @return Connection um objeto de conexão JDBC.
+	 * @return Connection um objeto de conexao JDBC.
 	 * 
 	 * @throws ClassNotFoundException caso o nome completo de DRIVER_MYSQL esteja
 	 *                                incorreto ou o driver JDBC do banco
-	 *                                selecionado não foi adicionado ao projeto (via
-	 *                                .jar ou dependência no pom.xml).
+	 *                                selecionado nao foi adicionado ao projeto (via
+	 *                                .jar ou dependencia no pom.xml).
 	 * 
 	 * @throws SQLException           caso a URL_CONEXAO, USUARIO e/ou SENHA estejam
 	 *                                incorretos.
@@ -95,7 +95,7 @@ public class Banco {
 			conn = DriverManager.getConnection(CONEXAO, USER, PASSWORD);
 			return conn;
 		} catch (ClassNotFoundException e) {
-			System.out.println("Classe do Driver não foi encontrada. Causa: " + e.getMessage());
+			System.out.println("Classe do Driver nao foi encontrada. Causa: " + e.getMessage());
 			return null;
 		} catch (SQLException e) {
 			System.out.println("Erro ao obter a Connection. Causa: " + e.getMessage());
@@ -109,20 +109,20 @@ public class Banco {
 				conn.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("Problema no fechamento da conexão. Causa: " + e.getMessage());
+			System.out.println("Problema no fechamento da conexao. Causa: " + e.getMessage());
 		}
 	}
 
 	/**
 	 * 
-	 * Solicita um objeto Statement para uma conexão. Este objeto serve para
-	 * executar as operações SQL.
+	 * Solicita um objeto Statement para uma conexao. Este objeto serve para
+	 * executar as opera��es SQL.
 	 * 
-	 * Este método deve ser sempre chamado nos DAOs após a criação da expressão SQL,
-	 * geralmente com os métodos execute(sql), executeUpdate(sql) ou
-	 * executeQuery(sql), onde "sql" é do tipo String.
+	 * Este metodo deve ser sempre chamado nos DAOs apos a cria�ao da expressao SQL,
+	 * geralmente com os metodos execute(sql), executeUpdate(sql) ou
+	 * executeQuery(sql), onde "sql" e do tipo String.
 	 * 
-	 * @param conn uma conexão anteriormente criada.
+	 * @param conn uma conexao anteriormente criada.
 	 * @return stmt um objeto do tipo Statement
 	 * 
 	 * @throws SQLException
@@ -142,7 +142,7 @@ public class Banco {
 	 * 
 	 * Fecha um objeto Statement anteriormente criado.
 	 * 
-	 * Este método deve ser sempre chamado nos DAOs após a execução da expressão
+	 * Este metodo deve ser sempre chamado nos DAOs apos a execu�ao da expressao
 	 * SQL.
 	 * 
 	 * @param stmt um objeto do tipo Statement
@@ -162,10 +162,10 @@ public class Banco {
 
 	/**
 	 * 
-	 * Solicita um objeto PreparedStatement para uma conexão. Este objeto serve para
-	 * executar as operações SQL.
+	 * Solicita um objeto PreparedStatement para uma conexao. Este objeto serve para
+	 * executar as opera��es SQL.
 	 * 
-	 * @param conn uma conexão anteriormente criada.
+	 * @param conn uma conexao anteriormente criada.
 	 * @return stmt um objeto do tipo PreparedStatement
 	 * 
 	 * @throws SQLException
@@ -183,10 +183,10 @@ public class Banco {
 
 	/**
 	 * 
-	 * Solicita um objeto PreparedStatement para uma conexão. Este objeto serve para
-	 * executar as operações SQL.
+	 * Solicita um objeto PreparedStatement para uma conexao. Este objeto serve para
+	 * executar as opera��es SQL.
 	 * 
-	 * @param conn uma conexão anteriormente criada.
+	 * @param conn uma conexao anteriormente criada.
 	 * @return stmt um objeto do tipo PreparedStatement
 	 * 
 	 * @throws SQLException
@@ -216,7 +216,7 @@ public class Banco {
 	 * 
 	 * Fecha um objeto PreparedStatement anteriormente criado.
 	 * 
-	 * Este método deve ser sempre chamado nos DAOs após a execução da expressão
+	 * Este metodo deve ser sempre chamado nos DAOs apos a execu�ao da expressao
 	 * SQL.
 	 * 
 	 * @param stmt um objeto do tipo PreparedStatement
@@ -238,8 +238,8 @@ public class Banco {
 	 * 
 	 * Fecha um objeto ResultSet anteriormente criado.
 	 * 
-	 * Este método deve ser sempre chamado nos DAOs após a consulta de todos os
-	 * resultados e conversão para objetos.
+	 * Este metodo deve ser sempre chamado nos DAOs apos a consulta de todos os
+	 * resultados e conversao para objetos.
 	 * 
 	 * @param result um objeto do tipo ResultSet
 	 * 

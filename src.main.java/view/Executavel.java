@@ -44,13 +44,13 @@ public class Executavel {
 	}
 
 	private static void atualizarEndereco() {
-		EnderecoDAO enderecoDAO = new EnderecoDAO();
-		Endereco enderecoQueSeraAtualizado = new Endereco(2, "das Atualizacoes", "88000000", "SC", "Palhoca", "Passa Vinte", "Casa");
-		if(enderecoDAO.alterar(enderecoQueSeraAtualizado)) {
-			System.out.println("Alterou");
-		}else {
-			System.out.println("N„o alterou");
-		} 
+//		EnderecoDAO enderecoDAO = new EnderecoDAO();
+//		Endereco enderecoQueSeraAtualizado = new Endereco(2, "das Atualizacoes", "88000000", "SC", "Palhoca", "Passa Vinte", "Casa");
+//		if(enderecoDAO.alterar(enderecoQueSeraAtualizado)) {
+//			System.out.println("Alterou");
+//		}else {
+//			System.out.println("N„o alterou");
+//		} 
 	}
 
 	private static void consultarEnderecos() {
@@ -83,13 +83,13 @@ public class Executavel {
 	}
 
 	private static void atualizarTelefone() {
-		TelefoneDAO telefoneDAO = new TelefoneDAO();
-		Telefone telefoneQueSeraAtualizado = new Telefone(2, 0, "88", "66", "1232-3211", "MÛvel", false);
-		if(telefoneDAO.alterar(telefoneQueSeraAtualizado)) {
-			System.out.println("Alterou");
-		}else {
-			System.out.println("N„o alterou");
-		} 
+//		TelefoneDAO telefoneDAO = new TelefoneDAO();
+//		Telefone telefoneQueSeraAtualizado = new Telefone(2, 0, "88", "66", "1232-3211", "MÛvel", false);
+//		if(telefoneDAO.alterar(telefoneQueSeraAtualizado)) {
+//			System.out.println("Alterou");
+//		}else {
+//			System.out.println("N„o alterou");
+//		} 
 	}
 
 	private static void excluirTelefone() {
@@ -111,33 +111,33 @@ public class Executavel {
 	}
 
 	private static void criarClientesMostrarNoConsole() {
-		Endereco endereco1 = new Endereco("Mauro Ramos", "88000-123", 
-				"SC", "FlorianÛpolis", "Centro", "10A");
-
-		//Constru√ß„o da lista de telefones
-		ArrayList<Telefone> telefonesCliente1 = new ArrayList<Telefone>();
-		Telefone tel1 = new Telefone(0, 0, "55", "048", "2020-5555", "Fixa", true);
-		telefonesCliente1.add(tel1);
-
-		//Listas de telefones s„o criadas por um m√©todo auxiliar criarTelefones() criado na classe Executavel
-		Cliente cliente1 = new Cliente("Edson", "Arantes do Nascimento", "010.010.100-10", telefonesCliente1, endereco1);
-		Cliente cliente2 = new Cliente("Artur", "Antunes Coimbra", "000.000.100-10", criarTelefones(), endereco1);
-		Cliente cliente3 = new Cliente("Manoel", "dos Santos", "777.010.100-10", criarTelefones(), endereco1);
-		Cliente cliente4 = new Cliente("Roberto", "Rivellino", "011.010.100-10",  criarTelefones(), endereco1);
-		Cliente cliente5 = new Cliente("Eduardo", "Gon√ßalves de Andrade", "009.010.100-10", criarTelefones(), endereco1);
-
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		clientes.add(cliente1);
-		clientes.add(cliente2);
-		clientes.add(cliente3);
-		clientes.add(cliente4);
-		clientes.add(cliente5);
-
-		for (Cliente c : clientes) {
-			System.out.println("************************************************************************************");
-			System.out.println(c);
-		}
-		System.out.println("************************************************************************************");
+//		Endereco endereco1 = new Endereco("Mauro Ramos", "88000-123", 
+//				"SC", "FlorianÛpolis", "Centro", "10A");
+//
+//		//Constru√ß„o da lista de telefones
+//		ArrayList<Telefone> telefonesCliente1 = new ArrayList<Telefone>();
+//		Telefone tel1 = new Telefone(0, 0, "55", "048", "2020-5555", "Fixa", true);
+//		telefonesCliente1.add(tel1);
+//
+//		//Listas de telefones s„o criadas por um m√©todo auxiliar criarTelefones() criado na classe Executavel
+//		Cliente cliente1 = new Cliente("Edson", "Arantes do Nascimento", "010.010.100-10", telefonesCliente1, endereco1);
+//		Cliente cliente2 = new Cliente("Artur", "Antunes Coimbra", "000.000.100-10", criarTelefones(), endereco1);
+//		Cliente cliente3 = new Cliente("Manoel", "dos Santos", "777.010.100-10", criarTelefones(), endereco1);
+//		Cliente cliente4 = new Cliente("Roberto", "Rivellino", "011.010.100-10",  criarTelefones(), endereco1);
+//		Cliente cliente5 = new Cliente("Eduardo", "Gon√ßalves de Andrade", "009.010.100-10", criarTelefones(), endereco1);
+//
+//		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+//		clientes.add(cliente1);
+//		clientes.add(cliente2);
+//		clientes.add(cliente3);
+//		clientes.add(cliente4);
+//		clientes.add(cliente5);
+//
+//		for (Cliente c : clientes) {
+//			System.out.println("************************************************************************************");
+//			System.out.println(c);
+//		}
+//		System.out.println("************************************************************************************");
 
 		//TODO exerc√≠cio 2 -> salvar os clientes no banco
 	}
@@ -184,9 +184,9 @@ public class Executavel {
 	 */
 	private static ArrayList<Telefone> criarTelefones() {
 		ArrayList<Telefone> telefones = new ArrayList<Telefone>();
-		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "Fixa", true));
-		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "Fixa", true));
-		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "MÛvel", true));
+//		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "Fixa", true));
+//		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "Fixa", true));
+//		telefones.add(new Telefone(0, 0, CODIGO_PAIS_BRASIL, criarDdd(), criarNumeroTelefone(), "MÛvel", true));
 
 		return telefones;
 	}

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.Font;
 
 public class PrimeiraTela {
 
@@ -50,6 +51,7 @@ public class PrimeiraTela {
 		frame.getContentPane().add(btnTesteBotao);
 		
 		JLabel lblTeste = new JLabel("Teste");
+		lblTeste.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		springLayout.putConstraint(SpringLayout.WEST, lblTeste, 153, SpringLayout.WEST, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.SOUTH, lblTeste, -60, SpringLayout.NORTH, btnTesteBotao);
 		frame.getContentPane().add(lblTeste);

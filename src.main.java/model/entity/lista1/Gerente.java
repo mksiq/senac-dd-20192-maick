@@ -5,11 +5,12 @@ public class Gerente extends Funcionario{
 
 	
 	
-	public Gerente(int id,String nome, String cpf, char sexo, int idade, double salarioBruto, Lotacao lotacao, double comissao) {
+	public Gerente(int id,String nome, String cpf, String sexo, int idade, double salarioBruto, Lotacao lotacao, double comissao) {
 		super(id, nome, cpf, sexo, idade, salarioBruto, lotacao);
 		this.comissao = comissao;
 	}
 
+	
 
 	public double calcularSalario() {	 
 		return this.getSalarioBase() * 0.9 + this.comissao;

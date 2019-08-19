@@ -7,10 +7,18 @@ public class Diretor extends Funcionario {
 
 	
 	
-	public Diretor(int id,String nome, String cpf, char sexo, int idade, double salarioBruto, Lotacao lotacao, double comissao) {
+	public Diretor(int id,String nome, String cpf, String sexo, int idade, double salarioBruto, Lotacao lotacao, double comissao) {
 		super(id, nome, cpf, sexo, idade, salarioBruto, lotacao);
 		this.comissao = comissao;
 	}
+	
+	
+
+	public Diretor() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	@Override
 	public double calcularSalario() {

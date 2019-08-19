@@ -5,7 +5,7 @@ public abstract class Funcionario {
 	private int id;
 	private String nome;
 	private String cpf;
-	private char sexo;
+	private String sexo;
 	private int idade;
 	private double salarioBruto;
 	private Lotacao lotacao;
@@ -15,7 +15,12 @@ public abstract class Funcionario {
 
 
 	
-	public Funcionario(int id,String nome, String cpf, char sexo, int idade, double salarioBruto, Lotacao lotacao) {
+	public Funcionario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Funcionario(int id,String nome, String cpf, String sexo, int idade, double salarioBruto, Lotacao lotacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -70,11 +75,11 @@ public abstract class Funcionario {
 		this.cpf = cpf;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 

@@ -54,13 +54,19 @@ public abstract class Funcionario {
 	public void calcularDescontoPrevidencia() {
 		if(this.idade < 45) {
 			setDescontoPrevidencia(this.getSalarioBruto() * 0.12);
-		}else if(this.salarioBruto > 3000) {
+		}else {
 			setDescontoPrevidencia(this.getSalarioBruto() * 0.08);
 		}
 	}
 
 	public String getNome() {
 		return nome;
+	}
+	
+	
+
+	public void imprimir() {
+		
 	}
 
 	public void setNome(String nome) {

@@ -6,7 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.dao.aula05.EnderecoDAO;
+import model.dao.aula05.TelefoneDAO;
 import model.dao.lista1.Banco;
+import model.entity.aula05.Cliente;
+import model.entity.aula05.Endereco;
+import model.entity.aula05.Telefone;
 import model.entity.lista1.Diretor;
 import model.entity.lista1.Funcionario;
 import model.entity.lista1.Gerente;
@@ -39,8 +44,11 @@ public class FuncionarioDAO implements BaseDAO<Funcionario> {
 			stmt.setString(3, novoFuncionario.getSexo());
 			stmt.setInt(4, novoFuncionario.getIdade());
 			stmt.setDouble(5, novoFuncionario.getSalarioBruto());
-			if (novoFuncionario instanceof Diretor || novoFuncionario instanceof Gerente) {
+			if (novoFuncionario instanceof Diretor) {
 				Diretor novoGestor = (Diretor) novoFuncionario; 
+				stmt.setDouble(6, novoGestor.getComissao());
+			} else if( novoFuncionario instanceof Gerente) {
+				Gerente novoGestor = (Gerente) novoFuncionario; 
 				stmt.setDouble(6, novoGestor.getComissao());
 			} else {
 				stmt.setDouble(6, 0);
@@ -67,6 +75,7 @@ public class FuncionarioDAO implements BaseDAO<Funcionario> {
 			if(rs.next()) {
 				int idGerado = rs.getInt(1);
 				novoFuncionario.setId(idGerado);
+				System.out.println("Funcionario de id " + idGerado + " inserido." );
 			}
 			
 		} catch (SQLException e) {
@@ -99,6 +108,34 @@ public class FuncionarioDAO implements BaseDAO<Funcionario> {
 	public ArrayList<Funcionario> consultarTodos() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private Funcionario construirFuncionariDoResultSet(ResultSet rs) {
+//		Funcionario f;
+//		if (f instanceof Diretor) {
+//			f = new Diretor();
+//		} else if (f instanceof Gerente) {
+//			f = new Gerente();
+//		} 
+//		try {
+//			c.setId(rs.getInt("id"));
+//			c.setNome(rs.getString("nome"));
+//			c.setSobrenome(rs.getString("sobrenome"));
+//			c.setCpf(rs.getString("cpf"));
+//
+//			EnderecoDAO enderecoDAO = new EnderecoDAO();
+//			Endereco end = enderecoDAO.consultarPorId(rs.getInt("idendereco"));
+//			c.setEndereco(end);
+//			
+//			TelefoneDAO telefoneDAO = new TelefoneDAO();
+//			ArrayList<Telefone> telefones = telefoneDAO.consultarTodosPorIdCliente(rs.getInt("id"));
+//			c.setTelefones(telefones);
+//		} catch (SQLException e) {
+//			System.out.println("Erro ao construir cliente a partir do ResultSet.");
+//			System.out.println("Erro: " + e.getMessage());
+//		}
+//		
+//		return null;
 	}
 
 }

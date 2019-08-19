@@ -18,33 +18,39 @@ public class LotacaoDAO implements BaseDAO<Lotacao> {
 
 	@Override
 	public Lotacao salvar(Lotacao novaLotacao) {
-		LotacaoDAO lotDAO = new LotacaoDAO();
-		
 		Connection conexao = Banco.getConnection();
-		String sql = " INSERT INTO LOTACAO(nome, sigla, idlotacao_superior, idfuncionario_responsavel) "
+		String sql = "INSERT INTO LOTACAO(nome, sigla, idlotacao_superior, idfuncionario_responsavel) "
 				+ " VALUES (?,?,?,?)";
 		PreparedStatement stmt = Banco.getPreparedStatement(conexao, sql, 
 				PreparedStatement.RETURN_GENERATED_KEYS);
 		try {
-			stmt.setString(1, novaLotacao.getNome()); 		//ok
+			stmt.setString(1, novaLotacao.getNome()); 	
 			if (novaLotacao instanceof Diretoria) {
-				stmt.setInt(2, 0);
-				Diretoria novaDiretoria = (Diretoria) novaLotacao;
-				stmt.setString(4, novaDiretoria.getSigla());
-				lotDAO.subordinarGerencias(novaDiretoria, novaDiretoria.getGerencias());
-				
+				Diretoria d2 = (Diretoria) novaLotacao;
+				stmt.setString(2, d2.getSigla());
+			} else {				
+				stmt.setString(2, "");
+			}
+			if (novaLotacao instanceof Diretoria) {
+				stmt.setInt(3, 0); 		//ok
 			} else {
-				Gerencia novaGerencia = (Gerencia) novaLotacao;
-				stmt.setInt(2, novaLotacao.getLotacaoSuperior().getId());
-				lotDAO.subordinarOperacionais(novaGerencia, novaGerencia.getOperacionais());
-			} 												//ok
-			stmt.setInt(3, novaLotacao.getResponsavel().getId());
+				Gerencia g3 = (Gerencia) novaLotacao;
+				stmt.setInt(3, g3.getLotacaoSuperior().getId());
+			}
+			
+			if (novaLotacao.getResponsavel() != null) {
+				stmt.setInt(4, novaLotacao.getResponsavel().getId()); 		
+			} else {
+				stmt.setInt(4, 0);
+			}
+			stmt.execute();
 			
 			ResultSet rs = stmt.getGeneratedKeys();
 			
 			if(rs.next()) {
 				int idGerado = rs.getInt(1);
 				novaLotacao.setId(idGerado);
+				System.out.println("Lotacao de id " + idGerado + " inserida." );
 			}
 
 		} catch (SQLException e) {

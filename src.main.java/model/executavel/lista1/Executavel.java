@@ -1,11 +1,13 @@
 package model.executavel.lista1;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import model.dao.lista1.FuncionarioDAO;
 import model.dao.lista1.LotacaoDAO;
 import model.entity.lista1.Diretor;
 import model.entity.lista1.Diretoria;
+import model.entity.lista1.Empresa;
 import model.entity.lista1.Funcionario;
 import model.entity.lista1.Gerencia;
 import model.entity.lista1.Gerente;
@@ -19,20 +21,40 @@ public class Executavel {
 	public static void main(String[] args) {
 
 
-		Diretoria d1 = new Diretoria();
-		
 
-//		Diretoria d2 = new Diretoria(0, "Central", null, null, "CEO",  null);
-//		dirDAO.salvar(d2);		
+		
 
 //		Operacional o1 = new Operacional(0, "Hercules", "00300400506", "M", 33, 2440, null);		
 //		FuncionarioDAO funcDAO = new FuncionarioDAO();
 //		funcDAO.salvar(o1);
 
-		
+		Empresa empresa = new Empresa();
+		ArrayList<Diretoria> diretorias = new ArrayList<Diretoria>();
+				
+		Diretoria d1 = new Diretoria();		
 		d1 = construirDiretoria();
-		lotDAO.salvar(d1);
+		
+		
+		
+		Diretoria l1 = (Diretoria) lotDAO.consultarPorId(3);
+		diretorias.add(l1);
+		
+		empresa.setDiretorias(diretorias);
+		empresa.imprimir();
+				
+//		lotDAO.salvar(d1);
 
+
+//		Lotacao impressao = lotDAO.consultarPorId(1);
+//		System.out.println(impressao);
+		
+//		empresa.imprimir();
+		
+//		for (int i = 1 ; i < 8; i++) {
+//		Funcionario fun1 = new Diretor();
+//			fun1 = funDAO.consultarPorId(i);
+//			fun1.imprimir();
+//		}
 	}
 
 	private static Diretoria construirDiretoria() {
@@ -48,14 +70,14 @@ public class Executavel {
 		diretoria.setGerencias(gerencias);
 		
 		
-	
+		lotDAO.salvar(diretoria);	
 		return diretoria;
 	}
 
 	private static ArrayList<Gerencia> contruirGerencias() {
 		ArrayList<Gerencia> gerencia = new ArrayList<Gerencia>();
 		Diretoria d1 = new Diretoria();
-		d1.setId(1);
+		d1.setId(3);
 		Gerencia g1 = new Gerencia();
 		g1.setNome("Financeiro");
 		g1.setLotacaoSuperior(d1);
@@ -112,10 +134,14 @@ public class Executavel {
 	private static Gerente criarGerente(int i) {
 		Gerente novoGerente = null;
 		if (i == 1 ) {
+			Gerencia novaGerencia = new Gerencia();
+			novaGerencia.setId(1);
 			novoGerente = new Gerente(0, "Gaius Julius Caesar", "00200300456", "M", 66, 7343, null, 2341);
 			funDAO.salvar(novoGerente);
 
 		} else {
+			Gerencia novaGerencia = new Gerencia();
+			novaGerencia.setId(2);
 			novoGerente = new Gerente(0, "Marcus Aurelius", "00200300456", "M", 55, 2332, null, 1231);
 			funDAO.salvar(novoGerente);
 		}
@@ -124,7 +150,9 @@ public class Executavel {
 	}
 
 	private static Diretor construirDiretor() {
-		Diretor diretor = new Diretor(0, "Elon Musk", "00100200345","M", 45, 44340, null, 4949);	
+		Diretoria diretoria = new Diretoria();
+		diretoria.setId(3);
+		Diretor diretor = new Diretor(0, "Elon Musk", "00100200345","M", 45, 44340, diretoria, 4949);	
 		funDAO.salvar(diretor);
 		return diretor;
 	}

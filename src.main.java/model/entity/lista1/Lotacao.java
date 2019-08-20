@@ -2,12 +2,15 @@ package model.entity.lista1;
 
 import java.util.ArrayList;
 
+import model.dao.lista1.FuncionarioDAO;
+
 public abstract class Lotacao {
 	private int id;
 	private String nome;
 	private Lotacao lotacaoSuperior;
 	private Funcionario responsavel;
 	
+	FuncionarioDAO fDAO = new FuncionarioDAO();
 	public Lotacao() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -42,10 +45,6 @@ public abstract class Lotacao {
 	}
 	public void setLotacaoSuperior(Lotacao lotacaoSuperior) {
 		this.lotacaoSuperior = lotacaoSuperior;
-	}
-	
-	
-
-	
+	}	
 	
 }

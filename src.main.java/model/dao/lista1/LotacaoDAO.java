@@ -136,7 +136,7 @@ public class LotacaoDAO implements BaseDAO<Lotacao> {
 /**
  * 
  * 
- * 						NUNCA ENTRA NESSE IF (?????????)
+ * 						NUNCA ENTRA NESSE IF (??????????)
  * 
  * 
  * 

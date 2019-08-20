@@ -11,15 +11,10 @@ public class Operacional extends Funcionario{
 	}
 
 	public void imprimir() {
-		if (this.getLotacao() != null) {
-			System.out.printf("%3s  %-20s  %3s  %3s  %-13s %-13s %-13s %-13s %20s\n", this.getId(), this.getNome(), this.getSexo(),
-					this.getIdade(), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBruto()), NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoImpostoRenda()), 
-					NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()), this.getLotacao().getNome());
-		} else {
-			System.out.printf("%3s  %-20s  %3s  %3s  %-13s %-13s %-13s %-13s\n", this.getId(), this.getNome(), this.getSexo(),
-					this.getIdade(), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBruto()), NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoImpostoRenda()), 
-					NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()));
-		}
+		System.out.printf("%3s  %-20s  %3s  %3s  %-13s %-13s %-13s %-13s %13s", this.getId(), this.getNome(), this.getSexo(),
+				this.getIdade(), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBruto()), NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoImpostoRenda()), 
+				NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia())," ", NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()));
+
 	}
 	public Operacional(int id,String nome, String cpf, String sexo, int idade, double salarioBruto, Lotacao lotacao) {
 		super(id, nome, cpf, sexo, idade, salarioBruto, lotacao);

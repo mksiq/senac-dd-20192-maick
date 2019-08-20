@@ -122,8 +122,14 @@ public class Executavel {
 			g2.setId(2);
 			Operacional o3 = new Operacional(0, "Hades", "00500600708", "M", 33, 1400, g2);
 			Operacional o4 = new Operacional(0, "Artemis", "00600700809", "F", 34, 2421, g2);
+			Operacional o5 = new Operacional(0, "Minotaurus", "00700800910", "M", 42, 2763, g2);
+			Operacional o6 = new Operacional(0, "Helena", "00800001011", "F", 22, 1563, g2);
+			Operacional o7 = new Operacional(0, "Homero", "00800001011", "F", 22, 1563, g2);
 			funDAO.salvar(o3);
 			funDAO.salvar(o4);
+			funDAO.salvar(o5);
+			funDAO.salvar(o6);
+			funDAO.salvar(o7);
 			op.add(o3);
 			op.add(o4);
 		}

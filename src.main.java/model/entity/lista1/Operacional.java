@@ -11,11 +11,15 @@ public class Operacional extends Funcionario{
 	}
 
 	public void imprimir() {
-		System.out.printf("%3s  %-20s  %3s  %3s  %-13s %-13s %-13s %-13s %13s", this.getId(), this.getNome(), this.getSexo(),
+
+		
+		System.out.printf("%3s  %-20s  %3s  %3s  %-13s %-13s %-13s %-13s %-13s %-13s", this.getId(), this.getNome(), this.getSexo(),
 				this.getIdade(), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBruto())," ", NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoImpostoRenda()), 
-				NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()));
+				NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()), NumberFormat.getCurrencyInstance(ptBr).format(this.calcularSalario()));
 
 	}
+	
+	
 	public Operacional(int id,String nome, String cpf, String sexo, int idade, double salarioBruto, Lotacao lotacao) {
 		super(id, nome, cpf, sexo, idade, salarioBruto, lotacao);
 

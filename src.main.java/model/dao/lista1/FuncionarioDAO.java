@@ -18,15 +18,19 @@ import model.entity.lista1.Operacional;
 
 public class FuncionarioDAO implements BaseDAO<Funcionario> {
 
-	@Override
+	public static final String TIPO_FUNCIONARIO_OPERACIONAL = "Operacional";
+	public static final String TIPO_FUNCIONARIO_DIRETOR = "Diretor";
+	public static final String TIPO_FUNCIONARIO_GERENTE = "Gerente";
 	public Funcionario salvar(Funcionario novoFuncionario) {
 		Connection conexao = Banco.getConnection();
 		String sql = " INSERT INTO FUNCIONARIO(NOME, CPF, SEXO, IDADE, SALARIOBRUTO, COMISSAO, "
-				+ " DESCONTOIMPOSTORENDA, DESCONTOPREVIDENCIA, SALARIOBASE, IDLOTACAO, CARGO) "
-				+ " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+				+ " DESCONTOIMPOSTORENDA, DESCONTOPREVIDENCIA, SALARIOBASE, IDLOTACAO, CARGO, SALARIOLIQUIDO) "
+				+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		// Faltou adicionar Salario Liquido calcularSalario();
 		PreparedStatement stmt = Banco.getPreparedStatement(conexao, sql, 
 				PreparedStatement.RETURN_GENERATED_KEYS);
-		try {
+		try { 
 			stmt.setString(1, novoFuncionario.getNome());
 			stmt.setString(2, novoFuncionario.getCpf());
 			stmt.setString(3, novoFuncionario.getSexo());
@@ -50,12 +54,13 @@ public class FuncionarioDAO implements BaseDAO<Funcionario> {
 				stmt.setInt(10, 0);
 			}
 			if (novoFuncionario instanceof Diretor) {
-				stmt.setString(11, "Diretor");
+				stmt.setString(11, TIPO_FUNCIONARIO_DIRETOR);
 			} else if (novoFuncionario instanceof Gerente) {
-				stmt.setString(11, "Gerente");
+				stmt.setString(11, TIPO_FUNCIONARIO_GERENTE);
 			} else {
-				stmt.setString(11, "Operacional");
+				stmt.setString(11, TIPO_FUNCIONARIO_OPERACIONAL);
 			}
+			stmt.setDouble(12, novoFuncionario.calcularSalario());
 			stmt.execute();
 			
 			ResultSet rs = stmt.getGeneratedKeys();

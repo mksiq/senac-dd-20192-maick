@@ -11,9 +11,9 @@ public class Diretor extends Funcionario {
 
 	public void imprimir() {
 
-		System.out.printf("%3s  %-23s  %-3s  %-3s  %-15s %-13s %-13s %-13s %13s\n", this.getId(), this.getNome(), this.getSexo(),
+		System.out.printf("%3s  %-23s  %-3s  %-3s  %-15s %-13s %-13s %-13s %13s %13s\n", this.getId(), this.getNome(), this.getSexo(),
 				this.getIdade(), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBruto()), NumberFormat.getCurrencyInstance(ptBr).format(this.getComissao()), NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoImpostoRenda()), 
-				NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()));
+				NumberFormat.getCurrencyInstance(ptBr).format(this.getDescontoPrevidencia()), NumberFormat.getCurrencyInstance(ptBr).format(this.getSalarioBase()), NumberFormat.getCurrencyInstance(ptBr).format(this.calcularSalario()));
 
 	}
 	

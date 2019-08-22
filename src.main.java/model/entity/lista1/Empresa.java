@@ -37,8 +37,8 @@ public class Empresa {
 		for (int i = 0; i < diretorias.size(); i++) {
 			this.diretorias.get(i).imprimir();
 			System.out.println();
-			System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %13s\n", "ID", "NOME DIRETOR", "SEXO",
-					"IDADE", "SAL BRUTO", "COMISSAO", "IMP RENDA" ,"INSS", "SAL LIQUIDO");
+			System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %-13s %-13s\n", "ID", "NOME DIRETOR", "SEXO",
+					"IDADE", "SAL BRUTO", "COMISSAO", "IMP RENDA" ,"INSS", "SAL BASE","SAL LIQUIDO");
 			this.diretorias.get(i).getResponsavel().imprimir();
 			System.out.printf("\n %3s  %-30s %-10s %-20s %-10s\n", "ID" , "NOME GERENCIA" , " ", "RESPONSÁVEL", "ID RESP");
 			totalF++;
@@ -52,8 +52,8 @@ public class Empresa {
 			
 			for(int j = 0; j <  this.getDiretorias().get(i).getGerencias().size(); j++) {
 				this.diretorias.get(i).getGerencias().get(j).imprimir();
-				System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %13s\n", "ID", "NOME GERENTE", "SEXO",
-						"IDADE", "SAL BRUTO", "COMISSAO", "IMP RENDA" ,"INSS", "SAL LIQUIDO");
+				System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %13s %13s\n", "ID", "NOME GERENTE", "SEXO",
+						"IDADE", "SAL BRUTO", "COMISSAO", "IMP RENDA" ,"INSS", "SAL BASE", "SAL LIQUIDO");
 				this.diretorias.get(i).getGerencias().get(j).getResponsavel().imprimir();
 				System.out.println();
 				totalF++;
@@ -69,8 +69,8 @@ public class Empresa {
 				ArrayList<Operacional> operacionais = fDAO.consultarTodosPorIdGerencia(this.diretorias.get(i).getGerencias().get(j).getId());
 				this.diretorias.get(i).getGerencias().get(j).setOperacionais(operacionais);
 				
-				System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %13s\n", "ID", "NOME OPERACIONAL", "SEXO",
-						"IDADE", "SAL BRUTO", " ", "IMP RENDA" ,"INSS", "SAL LIQUIDO");
+				System.out.printf("%3s  %-20s  %-3s  %-3s  %-13s %-13s %-13s %-13s %-13s %-13s\n", "ID", "NOME OPERACIONAL", "SEXO",
+						"IDADE", "SAL BRUTO", " ", "IMP RENDA" ,"INSS", "SAL BASE", "SAL LIQUIDO");
 				for (int k = 0; k < this.getDiretorias().get(i).getGerencias().get(j).getOperacionais().size(); k++) {
 					this.diretorias.get(i).getGerencias().get(j).getOperacionais().get(k).imprimir();
 					totalF++;

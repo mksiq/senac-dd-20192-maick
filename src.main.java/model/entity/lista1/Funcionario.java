@@ -13,7 +13,6 @@ public abstract class Funcionario {
 	private double descontoPrevidencia;
 	private double salarioBase;
 
-
 	
 	public Funcionario() {
 		super();
@@ -32,12 +31,14 @@ public abstract class Funcionario {
 		calcularSalarioBase();
 	}
 
+
 	public abstract double calcularSalario();
 
 	private void calcularSalarioBase() {
 		calcularDescontoIR();
 		calcularDescontoPrevidencia();
 		salarioBase = this.salarioBruto - (this.descontoImpostoRenda + this.descontoPrevidencia); 
+		
 	}
 	
 	public void calcularDescontoIR() {
